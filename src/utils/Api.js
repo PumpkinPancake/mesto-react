@@ -20,13 +20,13 @@ class Api {
       body: JSON.stringify({
         avatar: newLink,
       }),
-    }).then(res => this._handleResponce(res));
+    }).then((res) => this._handleResponce(res));
   }
 
   getUserInfo() {
     return fetch(`${this._url}/users/me`, {
       headers: this._headers,
-    }).then(res => this._handleResponce(res));
+    }).then((res) => this._handleResponce(res));
   }
 
   setUserInfo({ name, about }) {
@@ -37,13 +37,13 @@ class Api {
         name: name,
         about: about,
       }),
-    }).then(res => this._handleResponce(res));
+    }).then((res) => this._handleResponce(res));
   }
 
   getInitialCards() {
     return fetch(`${this._url}/cards`, {
       headers: this._headers,
-    }).then(res => this._handleResponce(res));
+    }).then((res) => this._handleResponce(res));
   }
 
   getPlaceCard(cardElement) {
@@ -54,31 +54,30 @@ class Api {
         name: cardElement.name,
         link: cardElement.link,
       }),
-    }).then(res => this._handleResponce(res));
+    }).then((res) => this._handleResponce(res));
   }
 
   likeCard(cardId) {
     return fetch(`${this._url}/cards/${cardId}/likes`, {
       method: "PUT",
       headers: this._headers,
-    }).then(res => this._handleResponce(res));
+    }).then((res) => this._handleResponce(res));
   }
 
   likeRemove(cardId) {
     return fetch(`${this._url}/cards/${cardId}/likes`, {
-      method: "PUT",
+      method: "DELETE",
       headers: this._headers,
-    }).then(res => this._handleResponce(res));
+    }).then((res) => this._handleResponce(res));
   }
 
   deleteCard(cardId) {
     return fetch(`${this._url}/cards/${cardId}`, {
       method: "DELETE",
       headers: this._headers,
-    }).then(res => this._handleResponce(res));
+    }).then((res) => this._handleResponce(res));
   }
 }
-
 
 const api = new Api(config);
 export default api;

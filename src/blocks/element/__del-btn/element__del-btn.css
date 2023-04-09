@@ -15,3 +15,7 @@
 .element__del-btn:hover {
     opacity: 60%;
 }
+
+.element__del-btn_hidden {
+    display: none;
+}
