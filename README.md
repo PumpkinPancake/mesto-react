@@ -28,3 +28,5 @@
 * Webpack
 * React
 * JSX
+
+* Ссылка на сайт: https://pumpkinpancake.github.io/mesto-react/
