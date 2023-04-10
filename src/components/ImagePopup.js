@@ -14,8 +14,8 @@ function ImagePopup({ card, onClose }) {
           onClick={handleClickClose}
         />
         <img
-          src={card ? card.link : "#"}
-          alt={card ? card.name : "#"}
+        src={card?.link}
+        alt={card?.name}
           className="popup__img"
         />
         <figcaption className="popup__title-img">
