@@ -18,7 +18,7 @@ function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
-  const [selectedCard, setSelectedCard] = useState({});
+  const [selectedCard, setSelectedCard] = useState(null);
   const [isImagePopupOpen, setIsImagePopupOpen] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
   const [cards, setCards] = useState([]);
@@ -129,6 +129,7 @@ function App() {
     setIsEditAvatarPopupOpen(false);
     setIsEditProfilePopupOpen(false);
     setIsImagePopupOpen(false);
+    setSelectedCard(null);
   }
 
   function handleCardClick(card) {
@@ -163,16 +164,10 @@ function App() {
         name="warning"
       ></PopupWithForm>
 
-      {Object.keys(selectedCard).length !== 0 && (
-        <ImagePopup
-          card={selectedCard}
-          onClose={() => {
-            setIsImagePopupOpen(false);
-            setSelectedCard({});
-          }}
-          isOpen={isImagePopupOpen}
-        />
-      )}
+      <ImagePopup
+        card={selectedCard}
+        onClose={closeAllPopups}
+      />
 
       <Header />
       <Main
@@ -193,6 +188,7 @@ function App() {
               onCardClick={handleCardClick}
               onCardLike={handleCardLike}
               onCardDelete={handleCardDelete}
+
             ></Card>
           );
         })}
